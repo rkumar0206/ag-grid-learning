@@ -1,12 +1,12 @@
 import {Component, signal} from '@angular/core';
 import {AgGridModule} from 'ag-grid-angular';
-import {ColDef, GridReadyEvent, ModuleRegistry, themeQuartz} from 'ag-grid-community';
-import {AllEnterpriseModule} from 'ag-grid-enterprise';
+import {AllCommunityModule, ColDef, GridReadyEvent, ModuleRegistry, themeQuartz} from 'ag-grid-community';
 import {every, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {AsyncPipe} from '@angular/common';
+import {MyCellComponent} from './myCellComponent';
 
-ModuleRegistry.registerModules([AllEnterpriseModule])
+ModuleRegistry.registerModules([AllCommunityModule])
 
 @Component({
   selector: 'app-root',
@@ -47,15 +47,13 @@ export class App {
     {
       field: 'make',
       headerName: "Company",
-      // cellRenderer: MyCellComponent,
-      // flex: 2,
-      // cellEditor: "agSelectCellEditor", // cell editor provided by ag, used for adding select option while editing
-      // cellEditorParams: {values: ['Tesla', 'Ford', 'Toyota']},
-      // rowGroup: true
+      cellRenderer: MyCellComponent,
+      flex: 2,
+      cellEditor: "agSelectCellEditor", // cell editor provided by ag, used for adding select option while editing
+      cellEditorParams: {values: ['Tesla', 'Ford', 'Toyota']},
     },
     {
-      field: 'model',
-      // rowGroup: false
+      field: 'model'
     },
     {
       field: 'price',
@@ -64,7 +62,7 @@ export class App {
         return '$' + params.value.toLocaleString();
       },
       cellClassRules: {
-        'green-cell': p => p.value > 80000,
+        'green-cell': p => p.value < 40000,
       }
     },
     {field: 'electric'},

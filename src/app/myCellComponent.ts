@@ -4,7 +4,7 @@ import {ICellRendererParams} from "ag-grid-community";
 
 @Component({
   standalone: true,
-  template: `<button (click)="buttonClicked()">+</button>{{value}}`
+  template: `<button (click)="buttonClicked()">+</button>    {{value}}`
 })
 export class MyCellComponent implements ICellRendererAngularComp {
 
