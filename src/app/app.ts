@@ -5,6 +5,7 @@ import {AllEnterpriseModule} from 'ag-grid-enterprise';
 import {every, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {AsyncPipe} from '@angular/common';
+import {StatusFilter} from './status-filter';
 
 ModuleRegistry.registerModules([AllEnterpriseModule])
 
@@ -37,32 +38,12 @@ export class App {
   paginationPageSizeSelector = [15, 20, 25]
 
   readonly colDefs = signal<ColDef[]>([
-    {field: 'mission', filter: true, hide: true},
-    {field: 'company', rowGroup: true, enableRowGroup: true},
-    {
-      field: 'location', rowGroup: true, hide: true, valueGetter: params => {
-        if (!params.data) return '';
-        const parts = params.data.location.split(',');
-        return parts[parts.length - 1].trim();
-      }
-    },
-    {field: 'date'},
-    {
-      field: 'price',
-      aggFunc: 'sum',
-      enableValue: true,
-      valueFormatter: p => p.value ? '$' + Math.floor(p.value).toLocaleString() : '',
-      allowedAggFuncs: ['sum', 'avg', 'max']
-    },
+    { field: 'mission' },
+    { field: 'company' },
     {
       field: 'successful',
-      pivot: true,
-      enablePivot: true,
-      cellRenderer: (params: any) => {
-        const color = params.value ? '#2ecc71' : '#e74c3c';
-        const text = params.value ? 'Success' : 'Failure';
-        return `<span style="color: ${color}; font-weight: bold;">${text}</span>`;
-      }
+      headerName: 'Status',
+       filter: StatusFilter
     }
   ]);
 
