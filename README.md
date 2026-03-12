@@ -5,5 +5,5 @@
 - Grouping columns
 - aggregators
 
-[![Watch the video](https://github.com/user-attachments/assets/ce1da5e1-19ae-4e52-8fa0-3b9163856e22)](https://drive.google.com/file/d/12VF083ygL9hmAAkXLaJz8qcf9yRLcJeV/view?usp=sharing
+[![Watch the video](https://github.com/user-attachments/assets/c84fa0d1-ce10-4cb3-a648-6f834ecfb274)](https://drive.google.com/file/d/12VF083ygL9hmAAkXLaJz8qcf9yRLcJeV/view?usp=sharing
 )
