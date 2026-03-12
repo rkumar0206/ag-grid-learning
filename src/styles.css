@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.green-cell {
+  background-color: rgba(10, 163, 3, 0.3);
+}
+
+.red-row {
+  background-color: rgba(150,100,100, 0.3);
+}
