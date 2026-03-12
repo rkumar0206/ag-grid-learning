@@ -1,0 +1,12 @@
+<div style="height: 765px; width: 100%">
+
+  <ag-grid-angular
+    [rowData]="rowData | async"
+    [columnDefs]="colDefs()"
+    [defaultColDef]="defaultColDef"
+    [rowGroupPanelShow]="'always'"
+    [theme]="myTheme"
+    style="height: 100%; width: 100%"
+    (gridReady)="onGridReady($event)"
+  />
+</div>
