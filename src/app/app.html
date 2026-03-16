@@ -1,10 +1,10 @@
-<div style="height: 765px; width: 100%">
+<div style="height: 765px; width: 100%" id="myGrid">
 
   <ag-grid-angular
     [rowData]="rowData | async"
+    [gridOptions]="gridOptions"
     [columnDefs]="colDefs()"
     [defaultColDef]="defaultColDef"
-    [rowGroupPanelShow]="'always'"
     [theme]="myTheme"
     style="height: 100%; width: 100%"
     (gridReady)="onGridReady($event)"
